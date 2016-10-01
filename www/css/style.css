@@ -1,0 +1,8 @@
+/* Empty. Add your own CSS if you like */
+.item {
+    margin-bottom: 2px;
+}
+
+.tabs-positive > .tabs{
+background-color: red !important;
+}

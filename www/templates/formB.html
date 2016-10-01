@@ -1,0 +1,59 @@
+<ion-view title="Form-B" id="page14">
+    <ion-content padding="true" class="has-header">
+        <form id="formB-form7" class="list">
+            <label class="item item-input" id="formB-input21">
+                <span class="input-label">Sap ID</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-select" id="formB-select10">
+                <span class="input-label">In close relatives name</span>
+                <select ng-model="investmentOnCloseRelation">
+                    <option>Yes</option>
+                    <option selected>No</option>
+                </select>
+            </label>
+            <label class="item item-select" ng-if="investmentOnCloseRelation == 'Yes'" id="formB-select11">
+                <span class="input-label">Relationship</span>
+                <select ng-model="selectedRelationship">
+                    <option selected>Spouse</option>
+                    <option>Son</option>
+                    <option>Daughter</option>
+                    <option>Parent</option>
+                    <option>Parents-in-law</option>
+                </select>
+            </label>
+            <label class="item item-input" id="formB-input22">
+                <span class="input-label">Name</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-input" id="formB-input23">
+                <span class="input-label">E-mail</span>
+                <input type="email" placeholder="">
+            </label>
+            <label class="item item-input" id="formB-input24">
+                <span class="input-label">Property Detail</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-input" id="formB-input25">
+                <span class="input-label">Developer Name</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-input" id="formB-input26">
+                <span class="input-label">Investor Name</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-input" id="formB-input29">
+                <span class="input-label">Total Area</span>
+                <input type="number" placeholder="">
+            </label>
+            <label class="item item-input" id="formB-input30">
+                <span class="input-label">Total Consideration</span>
+                <input type="number" placeholder="">
+            </label>
+            <label class="item item-input" id="formB-textarea4">
+                <span class="input-label">Remarks</span><textarea placeholder=""></textarea>
+            </label>
+            <button id="formB-button9" class="button button-assertive  button-block">Submit</button>
+        </form>
+    </ion-content>
+</ion-view>

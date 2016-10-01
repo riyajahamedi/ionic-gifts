@@ -1,0 +1,67 @@
+<ion-view title="Form-A" id="page12">
+    <ion-content padding="true" class="has-header">
+        <form id="formA-form5" class="list">
+            <label class="item item-input" id="formA-input9">
+                <span class="input-label">Sap ID</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-select" id="formA-select7">
+                <span class="input-label">In close relatives name</span>
+                <select ng-model="investmentOnCloseRelation">
+                    <option>Yes</option>
+                    <option selected>No</option>
+                </select>
+            </label>
+            <label class="item item-select" ng-if="investmentOnCloseRelation == 'Yes'" id="formA-select8">
+                <span class="input-label">Relationship</span>
+                <select ng-model="selectedRelationship" >
+                    <option selected>Spouse</option>
+                    <option>Son</option>
+                    <option>Daughter</option>
+                    <option>Parent</option>
+                    <option>Parents-in-law</option>
+                </select>
+            </label>
+            <label class="item item-input" id="formA-input10">
+                <span class="input-label">Name</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-input" id="formA-input11">
+                <span class="input-label">E-mail</span>
+                <input type="email" placeholder="">
+            </label>
+            <label class="item item-input" id="formA-input12">
+                <span class="input-label">Nature of Security</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-input" id="formA-input13">
+                <span class="input-label">Entity name</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-input" id="formA-input14">
+                <span class="input-label">Investor Name</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-input" id="formA-input15">
+                <span class="input-label">Purchase Date</span>
+                <input type="date" placeholder="">
+            </label>
+            <label class="item item-input" id="formA-input16">
+                <span class="input-label">Sale Date</span>
+                <input type="date" placeholder="">
+            </label>
+            <label class="item item-input" id="formA-input17">
+                <span class="input-label">Quantity</span>
+                <input type="number" placeholder="">
+            </label>
+            <label class="item item-input" id="formA-input18">
+                <span class="input-label">Value (Rs.)</span>
+                <input type="number" placeholder="">
+            </label>
+            <label class="item item-input" id="formA-textarea3">
+                <span class="input-label">Remarks</span><textarea placeholder=""></textarea>
+            </label>
+            <button id="formA-button8" class="button button-assertive  button-block">Submit</button>
+        </form>
+    </ion-content>
+</ion-view>

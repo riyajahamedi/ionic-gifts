@@ -1,0 +1,64 @@
+<ion-view title="Register Gift" id="page2" onload="onEmployeeLoad()">
+    <ion-content padding="true" class="has-header">
+        <form id="registerGift-form3" class="list">
+            <label class="item item-select" id="registerGift-select1">
+                <span class="input-label">Gift</span>
+                <select ng-model="selectedGift">
+                    <option value="" disabled selected>Select the gift</option>
+                    <option>Received</option>
+                    <option>Offered</option>
+                </select>
+            </label>
+            <label class="item item-select" id="registerGift-select2">
+                <span class="input-label">Type</span>
+                <select ng-model="selectedGiftType" ng-change="changeGiftType()">
+                    <option value="" disabled selected>Select the type</option>
+                    <option>Gift</option>
+                    <option>Entertinement</option>
+                </select>
+            </label>
+            <label class="item item-select" ng-if="selectedGiftType == 'Gift'"  id="registerGift-select3">
+                <span class="input-label">Type of Industry</span>
+                <select ng-model="selectedIndustry" ng-change="changeIndustry()">
+                    <option value="" disabled selected>Select the industry</option>
+                    <option>Govt</option>
+                    <option>Non-Govt</option>
+                </select>
+            </label>
+            <label class="item item-input ng-hide"  id="registerGift-textarea2">
+                <span class="input-label">Type of Govt</span><textarea placeholder=""></textarea>
+            </label>
+            <label class="item item-select" ng-if="selectedGiftType == 'Entertinement'" id="registerGift-select4">
+                <span class="input-label">Type</span>
+                <select>
+                    <option value="" disabled selected>Select the type</option>
+                    <option>Working meals</option>
+                    <option>Free tickets for company sponsored events (not more than two)</option>
+                    <option>Any meal in which liquor is served(Red)</option>
+                    <option>Free tickets for an entertainment or sport event, where the host is not present</option>
+                    <option>Free travel or stay arrangements</option>
+                    <option>Providing free sight seeing or any other hospitality free of cost.</option>
+                    <option>Hosting the family free of cost.</option>
+                </select>
+            </label>
+            <label class="item item-input" id="registerGift-textarea1">
+                <span class="input-label">Description</span><textarea placeholder=""></textarea>
+            </label>
+            <label class="item item-input" id="registerGift-input6">
+                <span class="input-label">Amount</span>
+                <input type="number" placeholder="" ng-model="amount">
+            </label>
+            <label class="item item-select" id="registerGift-select5">
+                <span class="input-label">Channel</span>
+                <select>
+                    <option value="" disabled selected>Select the channel</option>
+                    <option ng-selected="amount <= 1000">Green</option>
+                    <option ng-selected="amount > 1000">Red</option>
+                </select>
+            </label>
+        </form>
+        <div class="spacer" style="width: 300px; height: 10px;"></div>
+        <button id="registerGift-button4" class="button button-energized button-block">Save</button>
+        <button id="registerGift-button7" class="button button-assertive  button-block">Send for Approval</button>
+    </ion-content>
+</ion-view>
