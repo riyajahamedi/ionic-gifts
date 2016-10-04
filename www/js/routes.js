@@ -112,5 +112,31 @@ angular.module('app.routes', [])
         }
       })
 
+      .state('tabsController.giftDetail', {
+        url: '/page9',
+        params: {
+          viewName: 'tabsController.approval'
+        },
+        views: {
+          'tab2': {
+            templateUrl: 'templates/giftDetail.html',
+            controller: 'giftDetailCtrl'
+          }
+        }
+      })
+
+      .state('tabsController.reportGiftDetail', {
+        url: '/page9',
+        params: {
+          viewName: 'tabsController.report'
+        },
+        views: {
+          'tab3': {
+            templateUrl: 'templates/giftDetail.html',
+            controller: 'giftDetailCtrl'
+          }
+        }
+      })
+
     $urlRouterProvider.otherwise('/page5')
   });

@@ -1,64 +1,97 @@
 <ion-view title="Register Gift" id="page2" onload="onEmployeeLoad()">
     <ion-content padding="true" class="has-header">
-        <form id="registerGift-form3" class="list">
-            <label class="item item-select" id="registerGift-select1">
-                <span class="input-label">Gift</span>
-                <select ng-model="selectedGift">
-                    <option value="" disabled selected>Select the gift</option>
-                    <option>Received</option>
-                    <option>Offered</option>
+        <form id="registerGift-form8" class="list">
+            <label class="item item-input" id="registerGift-input19">
+                <span class="input-label">Date</span>
+                <input type="date" placeholder="">
+            </label>
+            <label class="item item-select" id="registerGift-select9">
+                <span class="input-label">Transaction</span>
+                <select ng-model="selectedTransaction">
+                    <option selected>Gift</option>
+                    <option>Entertainment</option>
                 </select>
             </label>
-            <label class="item item-select" id="registerGift-select2">
-                <span class="input-label">Type</span>
+            <label class="item item-select" ng-if="selectedTransaction == 'Entertainment'" id="registerGift-select12">
+                <span class="input-label">Entertainment</span>
+                <select>
+                    <option>Lunch/ Dinner</option>
+                    <option>Complimentary tickets for sports/ entertainment</option>
+                    <option>Any other hospitality offered free of cost</option>
+                </select>
+            </label>
+            <label class="item item-select" ng-if="selectedTransaction == 'Gift'" id="registerGift-select13">
+                <span class="input-label">Gift Type</span>
                 <select ng-model="selectedGiftType" ng-change="changeGiftType()">
-                    <option value="" disabled selected>Select the type</option>
-                    <option>Gift</option>
-                    <option>Entertinement</option>
+                    <option selected>Green</option>
+                    <option>Red</option>
                 </select>
             </label>
-            <label class="item item-select" ng-if="selectedGiftType == 'Gift'"  id="registerGift-select3">
-                <span class="input-label">Type of Industry</span>
-                <select ng-model="selectedIndustry" ng-change="changeIndustry()">
-                    <option value="" disabled selected>Select the industry</option>
-                    <option>Govt</option>
-                    <option>Non-Govt</option>
+            <label class="item item-select" ng-if="selectedTransaction == 'Gift'" id="registerGift-select14">
+                <span class="input-label">Gift Detail</span>
+                <select>
+                    <option selected>Paper based complimentary items viz. diary, calendar, etc.</option>
+                    <option>Perishable items like, sweets, flowers, dry fruits etc.</option>
+                    <option>Company name logo embossed complimentary gift items like pouches, key chain, pen stand etc.</option>
+                    <option>Complimentary tickets for company sponsored event, upto 2 tickets;</option>
+                    <option>Festive gifting (Attachment enabled) – Excel sheet with name of the</option>
                 </select>
             </label>
-            <label class="item item-input ng-hide"  id="registerGift-textarea2">
-                <span class="input-label">Type of Govt</span><textarea placeholder=""></textarea>
+            <label class="item item-select ng-hide"  id="registerGift-select15" ng-if="selectedTransaction == 'Gift'">
+                <span class="input-label">Gift Detail</span>
+                <select>
+                    <option selected>Special occasion gifting like wedding/ farewell etc.</option>
+                    <option>Handi craft or artifacts as goodwill gesture.</option>
+                    <option>Complimentary free tickets as a part of PR</option>
+                    <option>Customised corporate gifting like purses, bags, pouches etc.</option>
+                    <option>Any other item (please mention details)</option>
+                </select>
             </label>
-            <label class="item item-select" ng-if="selectedGiftType == 'Entertinement'" id="registerGift-select4">
+            <label class="item item-select" id="registerGift-select16">
                 <span class="input-label">Type</span>
                 <select>
-                    <option value="" disabled selected>Select the type</option>
-                    <option>Working meals</option>
-                    <option>Free tickets for company sponsored events (not more than two)</option>
-                    <option>Any meal in which liquor is served(Red)</option>
-                    <option>Free tickets for an entertainment or sport event, where the host is not present</option>
-                    <option>Free travel or stay arrangements</option>
-                    <option>Providing free sight seeing or any other hospitality free of cost.</option>
-                    <option>Hosting the family free of cost.</option>
+                    <option>Offered</option>
+                    <option>Received</option>
                 </select>
             </label>
-            <label class="item item-input" id="registerGift-textarea1">
-                <span class="input-label">Description</span><textarea placeholder=""></textarea>
+            <label class="item item-input" id="registerGift-input20">
+                <span class="input-label">Entity Nature</span>
+                <input type="text" placeholder="">
             </label>
-            <label class="item item-input" id="registerGift-input6">
+            <label class="item item-select" id="registerGift-select18">
+                <span class="input-label">Any previous gift?</span>
+                <select ng-model="previousGift">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </label>
+            <label class="item item-input" ng-if="previousGift == 'Yes'" id="registerGift-input27">
+                <span class="input-label">Details</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-select" id="registerGift-select19">
+                <span class="input-label">Relationship</span>
+                <select ng-model="selectedRelationship">
+                    <option>Vendor</option>
+                    <option>Business Partner</option>
+                    <option>Government Official</option>
+                    <option>Professional contact</option>
+                    <option>Others</option>
+                </select>
+            </label>
+            <label class="item item-input" ng-if="selectedRelationship == 'Others'" id="registerGift-input28">
+                <span class="input-label">Details</span>
+                <input type="text" placeholder="">
+            </label>
+            <label class="item item-select" id="registerGift-select20">
                 <span class="input-label">Amount</span>
-                <input type="number" placeholder="" ng-model="amount">
-            </label>
-            <label class="item item-select" id="registerGift-select5">
-                <span class="input-label">Channel</span>
                 <select>
-                    <option value="" disabled selected>Select the channel</option>
-                    <option ng-selected="amount <= 1000">Green</option>
-                    <option ng-selected="amount > 1000">Red</option>
+                    <option>&lt;Rs.1000</option>
+                    <option>&gt;Rs.1000</option>
                 </select>
             </label>
+            <button id="registerGift-button10" class="button button-balanced  button-block">Save</button>
+            <button id="registerGift-button11" class="button button-assertive  button-block">Register Gift</button>
         </form>
-        <div class="spacer" style="width: 300px; height: 10px;"></div>
-        <button id="registerGift-button4" class="button button-energized button-block">Save</button>
-        <button id="registerGift-button7" class="button button-assertive  button-block">Send for Approval</button>
     </ion-content>
 </ion-view>

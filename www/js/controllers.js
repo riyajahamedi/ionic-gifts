@@ -4,27 +4,23 @@ angular.module('app.controllers', [])
         // You can include any angular dependencies as parameters for this function
         // TIP: Access Route Parameters for your page via $stateParams.parameterName
         function ($scope, $stateParams, $timeout, $rootScope) {
-            $scope.selectedGift = "";
-            $scope.selectedGiftType = "";
-            $scope.selectedIndustry = "";
-            $scope.changeIndustry = function () {
-                var element = document.getElementById('registerGift-textarea2');
-                if (this.selectedIndustry == 'Govt') {
-                    element.classList.remove("ng-hide");
-                } else {
-                    element.classList.add("ng-hide");
-                }
-            };
+            $scope.selectedTransaction = "Gift";
+            $scope.selectedGiftType = "Green";
+            $scope.previousGift = "No";
+            $scope.selectedRelationship = "Vendor";
 
             $scope.changeGiftType = function () {
-                var element = document.getElementById('registerGift-textarea2');
-                if (this.selectedGiftType != 'Gift') {
-                    if (!element.classList.contains("ng-hide")) {
-                        element.classList.add("ng-hide");
-                    }
+                var red = document.getElementById('registerGift-select15');
+                var green = document.getElementById('registerGift-select14');
+                
+                if (this.selectedGiftType == 'Red') {
+                    red.classList.remove("ng-hide");
+                    green.classList.add("ng-hide");
+                } else {
+                    red.classList.add("ng-hide");
+                    green.classList.remove("ng-hide");
                 }
             };
-            $scope.amount = 0;
         }])
 
     .controller('giftsCtrl', ['$scope', '$stateParams', '$state', '$rootScope', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -36,11 +32,13 @@ angular.module('app.controllers', [])
             }
         }])
 
-    .controller('reportCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+    .controller('reportCtrl', ['$scope', '$stateParams','$state', '$rootScope', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
         // You can include any angular dependencies as parameters for this function
         // TIP: Access Route Parameters for your page via $stateParams.parameterName
-        function ($scope, $stateParams) {
-
+        function ($scope, $stateParams, $state, $rootScope) {
+            $scope.onItemClick = function () {
+                $state.go('tabsController.reportGiftDetail');
+            }
         }])
 
     .controller('loginCtrl', ['$scope', '$stateParams', '$state', '$rootScope', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -58,7 +56,7 @@ angular.module('app.controllers', [])
                 } else if (this.username.toLowerCase() == "approver" && this.password == "123456") {
                     //Approver login
                     $rootScope.hideApprove = false;
-                    $state.go('tabsController.gifts');
+                    $state.go('tabsController.registerGift');
                 }
             };
         }])
@@ -71,12 +69,13 @@ angular.module('app.controllers', [])
 
         }])
 
-    .controller('approvalCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+    .controller('approvalCtrl', ['$scope', '$stateParams','$state', '$rootScope', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
         // You can include any angular dependencies as parameters for this function
         // TIP: Access Route Parameters for your page via $stateParams.parameterName
-        function ($scope, $stateParams) {
-
-
+        function ($scope, $stateParams, $state, $rootScope) {
+            $scope.onItemClick = function () {
+                $state.go('tabsController.giftDetail');
+            }
         }])
 
     .controller('tabController', ['$scope', '$stateParams', '$state', '$rootScope', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
@@ -113,4 +112,14 @@ angular.module('app.controllers', [])
         function ($scope, $stateParams) {
             $scope.selectedRelationship = "Spouse";
             $scope.investmentOnCloseRelation = "No";
+        }])
+
+    .controller('giftDetailCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+        // You can include any angular dependencies as parameters for this function
+        // TIP: Access Route Parameters for your page via $stateParams.parameterName
+        function ($scope, $stateParams) {
+            $scope.showButtons = true;
+            if($stateParams.viewName == "tabsController.report"){
+                $scope.showButtons = false;
+            }
         }])
